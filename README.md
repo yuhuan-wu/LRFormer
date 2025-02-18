@@ -17,6 +17,18 @@ Tested with `pytorch 2.2.1, torchvision 0.17.1, mmcv 2.1.0, mmdet 3.3, and cuda 
 
 ---
 
+## Installation
+
+You can follow the installation of `mmsegmentation`. For simplicity,
+run the following commands:
+
+```bash
+pip install -r requirements.txt
+python setup.py build develop 
+```
+
+---
+
 ## Introduction
 
 Semantic segmentation requires both fine-grained detail and global context. While traditional high-resolution self-attention effectively captures local details, its computational complexity is a major bottleneck. Our proposed Low-Resolution Self-Attention (LRSA) computes self-attention in a fixed, low-resolution space—regardless of input size—thereby significantly reducing FLOPs. To compensate for any loss in local detail, we further integrate 3×3 depth-wise convolutions. Based on LRSA, we design LRFormer, a vision transformer backbone tailored for semantic segmentation. Extensive experiments on ADE20K, COCO-Stuff, and Cityscapes demonstrate that LRFormer consistently outperforms state-of-the-art models with lower computational cost.
@@ -76,6 +88,9 @@ On ADE20K, we further improve segmentation by coupling our LRFormer encoder with
 *“†” indicates results with ImageNet-22K pretraining and larger input size (640×640).*
 
 All models will be available for access on Google Drive and Baidu Pan.
+
+Google Drive:
+
 
 ---
 
