@@ -99,7 +99,7 @@ Google Drive:
 To train LRFormer (e.g., the LRFormer-S variant) in a distributed manner on 8 GPUs, run:
 
 ```bash
-bash tools/dist_train.sh configs/mask2former/lrformer-s-plus-160k_ade20k-512x512.py 8
+bash tools/dist_train.sh configs/lrformer/lrformer-s-plus-160k_ade20k-512x512.py 8
 # bash tools/dist_train.sh $CONFIG_PATH $NUM_GPUS
 ```
 
