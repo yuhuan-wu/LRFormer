@@ -243,7 +243,7 @@ class Block(nn.Module):
 
 
 @HEADS.register_module()
-class Pool2Head(BaseDecodeHead):
+class LRHead(BaseDecodeHead):
     """Pooling Attention Head.
     Args:
         num_heads: number of head in the pooling attention
@@ -257,7 +257,7 @@ class Pool2Head(BaseDecodeHead):
                  q_pooled_size=32,
                  qkv_bias=True,
                  **kwargs):
-        super(Pool2Head, self).__init__(
+        super(LRHead, self).__init__(
             input_transform='multiple_select', **kwargs)
 
         self.squeeze1 = ConvModule(

@@ -10,7 +10,6 @@ from mmengine.runner import Runner
 
 from mmseg.registry import RUNNERS
 
-import lrformer_release, pool_head
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train a segmentor')

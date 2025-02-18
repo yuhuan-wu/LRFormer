@@ -1,5 +1,5 @@
-from os import sep
 from pickle import TRUE
+from collections import OrderedDict
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -24,6 +24,7 @@ from mmcv.cnn import get_model_complexity_info
 from mmcv.cnn import build_norm_layer
 
 
+# from timm
 def drop_path(x, drop_prob: float = 0., training: bool = False, scale_by_keep: bool = True):
     """Drop paths (Stochastic Depth) per sample (when applied in main path of residual blocks).
 
@@ -44,6 +45,7 @@ def drop_path(x, drop_prob: float = 0., training: bool = False, scale_by_keep: b
     return x * random_tensor
 
 
+# from timm
 class DropPath(nn.Module):
     """Drop paths (Stochastic Depth) per sample  (when applied in main path of residual blocks).
     """
@@ -207,10 +209,9 @@ class Block(nn.Module):
         
         #print("block init x.max", x.max())
         x = x.permute(0,2,1).reshape(B, C, H, W)
-        x = self.pre_norm(x)
+        x = self.pre_norm(x) # only used in LRFormer-XL
         x = self.cpe(x) + x
         x = x.reshape(B, C, -1).permute(0,2,1)
-        #print("block after cpe x.max", x.max())
         
         if self.ls:
             x = x + self.drop_path(self.layer_scale_1[None, None, :] * self.attn(self.norm1(x), H, W, d_convs=d_convs))
@@ -288,9 +289,7 @@ class LRFormer(BaseModule):
         self.depths = depths
 
         self.embed_dims = embed_dims
-        
-        # print(q_pooled_sizes, depths, "q_conv:", q_conv, "use_ls", use_ls)
-        
+                
         # Original 11^2 + 8^2 + 6^2 + 4^2 = 237 < 16^2
         # Target Pooled Feature Size for Pyramid Pooling
         # This is NOT the pooling ratio
