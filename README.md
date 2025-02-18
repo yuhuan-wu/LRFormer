@@ -1,6 +1,6 @@
 # Low-Resolution Self-Attention for Semantic Segmentation
 
-This is the official repository for **Low-Resolution Self-Attention for Semantic Segmentation**. We introduce a novel self-attention mechanism (LRSA) that computes attention in a fixed low-resolution space regardless of the input image size. This design drastically reduces computational cost while still capturing global context. Based on LRSA, we build the Low-Resolution Transformer (LRFormer) with an encoder-decoder architecture, and we provide several variants (T/S/B/L/XL). In addition, we release enhanced versions (LRFormer+) that combine the LRFormer encoder with a query-based decoder (e.g., Mask2Former) for even stronger performance.
+This is the official repository for **Low-Resolution Self-Attention for Semantic Segmentation**. We introduce a self-attention mechanism (LRSA) that computes attention in a fixed low-resolution space regardless of the input image size. This design drastically reduces computational cost while still capturing global context. Based on LRSA, we build the Low-Resolution Transformer (LRFormer) with an encoder-decoder architecture, and we provide several variants (T/S/B/L/XL). In addition, we release enhanced versions (LRFormer+) that combine the LRFormer encoder with a query-based decoder (e.g., Mask2Former) for even stronger performance.
 
 ---
 
@@ -75,7 +75,7 @@ On ADE20K, we further improve segmentation by coupling our LRFormer encoder with
 
 *“†” indicates results with ImageNet-22K pretraining and larger input size (640×640).*
 
-All models are available for access on Google Drive and Baidu Pan.
+All models will be available for access on Google Drive and Baidu Pan.
 
 ---
 
@@ -92,9 +92,19 @@ bash tools/dist_train.sh configs/mask2former/lrformer-s-plus-160k_ade20k-512x512
 
 
 ```bash
-bash tools/dist_test.sh configs/mask2former/lrformer-s-160k_ade20k-512x512.py model_release/lrformer-s-160k_ade20k_50.0.pth 1
+bash tools/dist_test.sh configs_local/lrformer/lrformer_l_ade20k_160k.py model_release/lrformer-l-160k_ade20k_52.6.pth 1
 # bash tools/dist_test.sh $CONFIG_PATH $MODEL_PATH $NUM_GPUS
 ```
 
 
+### Other Notes
+
+If you meet any problems, please do not hesitate to contact us.
+Issues and discussions are welcome in the repository!
+You can also contact us via sending messages to this email: wuyuhuan@mail.nankai.edu.cn
+
+
+### License
+
+This code is released under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License for Non-Commercial use only. Any commercial use should get formal permission first.
 
