@@ -87,9 +87,9 @@ On ADE20K, we further improve segmentation by coupling our LRFormer encoder with
 
 *“†” indicates results with ImageNet-22K pretraining and larger input size (640×640).*
 
-All models will be available for access on Google Drive and Baidu Pan.
+All models will be available for access on Google Drive and Baidu Pan. Now available on Huggingface.
 
-Google Drive:
+Huggingface: [Here](https://huggingface.co/yuhuan-wu/LRFormer-Models/tree/main)
 
 
 ---
