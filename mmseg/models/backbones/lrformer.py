@@ -293,7 +293,12 @@ class LRFormer(BaseModule):
         # Original 11^2 + 8^2 + 6^2 + 4^2 = 237 < 16^2
         # Target Pooled Feature Size for Pyramid Pooling
         # This is NOT the pooling ratio
-        pooled_sizes = [[11, 8, 6, 4], [11, 8, 6, 4], [11, 8, 6, 4], [11, 8, 6, 4]]
+        #pooled_sizes = [[11, 8, 6, 4], [11, 8, 6, 4], [11, 8, 6, 4], [11, 8, 6, 4]]
+        base_pooled_sizes = [11, 8, 6, 4] # basic ratio corresponding q_pooled_size=16
+        pooled_sizes = [
+            [round(temp *  q_pooled_sizes[i] / 16. + 0.001) for temp in base_pooled_sizes] for i in range(4)
+        ]
+        
 
         self.patch_embed1 = Stem(in_chans=in_chans, out_chans=embed_dims[0], patch_size=4)
 
