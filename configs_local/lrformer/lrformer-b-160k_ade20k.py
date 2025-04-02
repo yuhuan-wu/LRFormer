@@ -1,4 +1,4 @@
-_base_ = ['lrformer_s_ade20k_160k.py']
+_base_ = ['lrformer-s-160k_ade20k.py']
 
 model = dict(
 	backbone=dict(

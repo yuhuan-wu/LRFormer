@@ -1,9 +1,7 @@
 _base_ = ['../_base_/datasets/ade20k_640x640.py', '../_base_/default_runtime.py', '../_base_/schedules/schedule_160k.py'
 ]
 norm_cfg = dict(type='SyncBN', requires_grad=True)
-pretrained = 'pretrained/LRFormer_small.pth'  # noqa
-depths = [3,3,12,3]
-crop_size = (512, 512)
+crop_size = (640, 640)
 data_preprocessor = dict(
     type='SegDataPreProcessor',
     mean=[123.675, 116.28, 103.53],
