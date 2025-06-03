@@ -118,8 +118,3 @@ If you meet any problems, please do not hesitate to contact us.
 Issues and discussions are welcome in the repository!
 You can also contact us via sending messages to this email: wuyuhuan@mail.nankai.edu.cn
 
-
-### License
-
-This code is released under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License for Non-Commercial use only. Any commercial use should get formal permission first.
-
