@@ -2,6 +2,9 @@
 
 This is the official repository for **Low-Resolution Self-Attention for Semantic Segmentation**. We introduce a self-attention mechanism (LRSA) that computes attention in a fixed low-resolution space regardless of the input image size. This design drastically reduces computational cost while still capturing global context. Based on LRSA, we build the Low-Resolution Transformer (LRFormer) with an encoder-decoder architecture, and we provide several variants (T/S/B/L/XL). In addition, we release enhanced versions (LRFormer+) that combine the LRFormer encoder with a query-based decoder (e.g., Mask2Former) for even stronger performance.
 
+[PDF Download](https://mmcheng.net/wp-content/uploads/2025/06/25PAMI_LRFormer.pdf)
+
+
 ---
 
 ## Requirements
@@ -40,6 +43,8 @@ For even higher performance, we also offer an enhanced version (LRFormer+) that 
 ## Pretrained Models & Results
 
 We provide pretrained models on three popular semantic segmentation datasets. The following tables summarize the performance (FLOPs, parameter count, and mIoU) of our LRFormer and LRFormer+ variants.
+
+Our core model file (LRFormer backbone) is [located here](https://github.com/yuhuan-wu/LRFormer/blob/master/mmseg/models/backbones/lrformer.py). Optionally, you can replace the backbone of your own model with LRFormer for better performance.
 
 ### ADE20K (Validation)
 
@@ -87,7 +92,7 @@ On ADE20K, we further improve segmentation by coupling our LRFormer encoder with
 
 *“†” indicates results with ImageNet-22K pretraining and larger input size (640×640).*
 
-All models will be available for access on Google Drive and Baidu Pan. Now available on Huggingface.
+All models, including ImageNet pretrained weights, will be available for access on Google Drive. Now available on Huggingface and Baidu Pan.
 
 Huggingface: [Download](https://huggingface.co/yuhuan-wu/LRFormer-Models/tree/main)
 Baidu Pan: [Download](https://pan.baidu.com/s/1dPUTv1MxSXcdsDAQtP481A?pwd=yhwu)
@@ -111,6 +116,18 @@ bash tools/dist_test.sh configs_local/lrformer/lrformer_l_ade20k_160k.py model_r
 # bash tools/dist_test.sh $CONFIG_PATH $MODEL_PATH $NUM_GPUS
 ```
 
+## Citation
+
+If you are using the code/model/data provided here in a publication, please consider citing our works:
+
+````
+@article{wu2025lrformer,
+  title={Low-resolution self-attention for semantic segmentation},
+  author={Wu, Yu-Huan and Zhang, Shi-Chen and Liu, Yun and Zhang, Le and Zhan, Xin and Zhou, Daquan and Feng, Jiashi and Cheng, Ming-Ming and Zhen, Liangli},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2025}
+}
+````
 
 ### Other Notes
 
