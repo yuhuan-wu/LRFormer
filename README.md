@@ -89,8 +89,8 @@ On ADE20K, we further improve segmentation by coupling our LRFormer encoder with
 
 All models will be available for access on Google Drive and Baidu Pan. Now available on Huggingface.
 
-Huggingface: [Here](https://huggingface.co/yuhuan-wu/LRFormer-Models/tree/main)
-
+Huggingface: [Download](https://huggingface.co/yuhuan-wu/LRFormer-Models/tree/main)
+Baidu Pan: [Download](https://pan.baidu.com/s/1dPUTv1MxSXcdsDAQtP481A?pwd=yhwu)
 
 ---
 
